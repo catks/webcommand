@@ -1,0 +1,10 @@
+
+commands:
+  hello_world:
+    command: 'echo "Hello {{world}}"'
+  new_file:
+    command: 'echo "{{contents}}" > {{filename}}; echo "DONE"'
+    params:
+      filename: '^[a-z]+$' # Some Regexp
+      contents: '^[a-zA-Z0-9]*$'
+

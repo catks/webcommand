@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require_relative '../lib/webcommand'
+
+module Webcommand
+  class CLI < Thor
+    desc "server", "Start the Webcommand server"
+    option :port
+    def server
+      ::WebCommand::Server.start!
+    end
+  end
+end
+
+Webcommand::CLI.start(ARGV)
