@@ -1,0 +1,15 @@
+
+commands:
+  hello_world:
+    command: 'echo "Hello {{world}}"'
+  hello_two_worlds:
+    command: 'echo "Hello {{world1}} & {{world2}}"'
+    params:
+      world1: '.+'
+      world2: '.+'
+  hello_validation:
+    command: 'echo "Hello {{world_string}}"'
+    params:
+      world_string: '^[a-zA-Z]+$'
+  my_error:
+    command: 'exit {{exit_status}}'
