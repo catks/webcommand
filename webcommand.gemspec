@@ -5,15 +5,14 @@ require "webcommand/version"
 Gem::Specification.new do |spec|
   spec.name          = "webcommand"
   spec.version       = Webcommand::VERSION
-  spec.authors       = ["Carlos Atkinson"]
+  spec.authors       = ["Carlos Atkinson Ferreira Filho"]
   spec.email         = ["carlos.atks@gmail.com"]
 
   spec.summary       = %q{Runs commands from a webpage}
- # spec.description   = %q{TODO: Write a longer description or delete this line.}
- # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/catks/webcommand"
   spec.license       = "MIT"
 
-  #spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/catks/webcommand"
   #spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
