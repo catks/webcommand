@@ -1,9 +1,11 @@
 module Webcommand
   class Server < Sinatra::Application
     use Rack::PostBodyContentTypeParser
+
     before do
       content_type 'application/json'
     end
+
 
     using Webcommand::Extensions::HashExtension
 

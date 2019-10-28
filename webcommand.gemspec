@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mustache", "~> 1.0"
   spec.add_dependency "rack-contrib", "~> 2.1.0"
   spec.add_dependency "tty-command", "~> 0.9.0"
+  spec.add_dependency "puma", "~> 4.2.1"
   spec.add_development_dependency "byebug"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "bundler", "~> 2.0"
