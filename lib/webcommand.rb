@@ -4,13 +4,15 @@ require 'json'
 require 'rack/contrib'
 require 'yaml'
 require 'tty-command'
+require 'thor'
+require 'pathname'
 
-require_relative 'webcommand/version'
 require_relative 'webcommand/extensions/hash_extension'
 require_relative 'webcommand/command'
 require_relative 'webcommand/server'
 require_relative 'webcommand/config'
 require_relative 'webcommand/commands'
+require_relative 'webcommand/cli'
 
 module Webcommand
   def self.config
