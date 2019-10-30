@@ -30,14 +30,14 @@ Create a config file specifying the commands you want to expose with the permitt
 # my_config.yml
 commands:
   hello_world:
-  # Parameter without validations 
-    command: 'echo "Hello {{world}}"' 
+  # Parameter without validations
+    command: 'echo "Hello {{world}}"'
   hehe:
-    command: 'echo "{{name}}, are you {{state}}"'
+    command: 'echo "{{name}}, are you {{state}}?"'
     params:
     # Validation can be configured with any REGEXP
       name: '^[a-zA-Z]+$'
-      state: '^\S+$' 
+      state: '^\S+$'
 ```
 
 Run the webserver with the cli (*OBS: See the `webcommand help server
@@ -49,10 +49,10 @@ After that you can execute your commands throught the web api:
 
 ```sh
 curl -X POST http://localhost:3000/executions \
--d '{"command": "hehe", "params": { "name": "Annie", "state": "Okay"} }' \
+-d '{"command": "hehe", "params": { "name": "Annie", "state": "Ok"} }' \
 -H "Content-Type: application/json"
 
-#=> {"stdout":"Annie, are you Okay\n","stderr":"","exit_status":0}%  
+#=> {"stdout":"Annie, are you Ok?\n","stderr":"","exit_status":0}%
 ```
 
 ### With Rails
