@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    webcommand (0.1.0)
+    webcommand (0.1.1)
       mustache (~> 1.0)
       puma (~> 4.2.1)
       rack-contrib (~> 2.1.0)
