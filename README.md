@@ -5,12 +5,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c998fcc99367d0e26fca/test_coverage)](https://codeclimate.com/github/catks/webcommand/test_coverage)
 
 
-
-
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/webcommand`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Webcommand lets you run commands through a Web API
 
 ## Installation
 
@@ -30,17 +25,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a config file specifying the commands you want to expose with the permitted params.
+```yaml
+# my_config.yml
+commands:
+  hello_world:
+  # Parameter without validations 
+    command: 'echo "Hello {{world}}"' 
+  hehe:
+    command: 'echo "{{name}}, are you {{state}}"'
+    params:
+    # Validation can be configured with any REGEXP
+      name: '^[a-zA-Z]+$'
+      state: '^\S+$' 
+```
 
-## Development
+Run the webserver with the cli (*OBS: See the `webcommand help server
+` for additional options*):
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+`WEBCOMMAND_CONFIGURATION=./my_config.yml webcommand server --port 3000`
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After that you can execute your commands throught the web api:
+
+```sh
+curl -X POST http://localhost:3000/executions \
+-d '{"command": "hehe", "params": { "name": "Annie", "state": "Okay"} }' \
+-H "Content-Type: application/json"
+
+#=> {"stdout":"Annie, are you Okay\n","stderr":"","exit_status":0}%  
+```
+
+### With Rails
+
+*...TODO...*
+
+### With Docker
+
+*...TODO...*
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/webcommand.
+Bug reports and pull requests are welcome on GitHub at https://github.com/catks/webcommand.
 
 ## License
 
