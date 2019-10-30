@@ -7,4 +7,9 @@ commands:
     params:
       filename: '^[a-z]+$' # Some Regexp
       contents: '^[a-zA-Z0-9]*$'
+  hehe:
+    command: 'echo "{{name}}, are you {{state}}"'
+    params:
+      name: '^[a-zA-Z]+$'
+      state: '^\S+$'
 
