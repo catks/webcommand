@@ -3,7 +3,7 @@ PATH
   specs:
     webcommand (0.1.2)
       mustache (~> 1.0)
-      puma (~> 4.2.1)
+      puma (>= 4.2.1, < 4.4.0)
       rack-contrib (~> 2.1.0)
       sinatra (~> 2.0.7)
       thor (~> 0.20.3)
@@ -49,7 +49,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    puma (4.2.1)
+    puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.0.8)
     rack-contrib (2.1.0)
