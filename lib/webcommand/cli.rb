@@ -1,16 +1,19 @@
 module Webcommand
   class CLI < Thor
+    SERVER_ADAPTERS = {
+      'webrick' =>  Webcommand::Server::Adapters::Webrick
+    }.freeze
+
     desc "server", "Start the Webcommand server"
     option :port, aliases: :p, default: 9292
     option :bind, aliases: :b, default: '0.0.0.0'
-    option :threads, aliases: :t, default: 8
-    option :workers, aliases: :w, default: 1
+    option :adapter, type: :string, enum: SERVER_ADAPTERS.keys, default: 'webrick'
+
     def server
-      exec "puma " \
-       "-p #{options[:port]} " \
-       "-t #{options[:threads]}:#{options[:threads]} " \
-       "-w #{options[:workers]} " \
-       "#{Webcommand.root_path.join('config.ru')}"
+      server_adapter = SERVER_ADAPTERS[options[:adapter]]
+      server = server_adapter.new(Webcommand::Server, options)
+
+      server.start
     end
   end
 end
